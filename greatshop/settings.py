@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'category',
     'accounts',
     'store',
+    'carts',
 
 ]
 
@@ -68,6 +69,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # Използваме "context_processors" за да можем да използваме  "menu_links" за всички темплаити
                 'category.context_processors.menu_links',
+                'carts.context_processors.counter',
+
             ],
         },
     },
