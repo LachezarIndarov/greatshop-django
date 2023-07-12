@@ -144,3 +144,43 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# from django.contrib.messages import constants as messages
+#
+# MESSAGE_TAGS = {
+#     messages.INFO: "",
+#     50: "critical",
+# }
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: "danger",
+    50: "critical",
+}
+
+
+# # SMTP configuration
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'apiautomation61@gmail.com'
+# EMAIL_HOST_PASSWORD = '123456789a@A'
+# EMAIL_USE_TLS = True
+
+#!!!!!!!! За да се получат тези настройки с изпращането и потвърждаването на емаила в google(gmail), трябва да си включил
+# 2-Step Varification и да си активирал  App Password - 16 буквения код като го поставяш в EMAIL_HOST_PASSWORD.
+# Do the following steps to generate app specific password,
+#
+# Log in to your Google account or use this link https://security.google.com/settings/security/apppasswords
+# Go to My Account > Sign-in & Security > App Passwords
+# Scroll down to Select App in the Password & sign-in methds and choose Other (custom name) Give this app password a name, Eg: "automailer"
+# Choose Generate Copy the long generated password and paste it into your script instead of your actual Gmail password.
+
+# SMTP configuration
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'apiautomation62@gmail.com'
+EMAIL_HOST_PASSWORD = 'zayphbkxxgqsoapp'
+EMAIL_USE_TLS = True
+
