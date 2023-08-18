@@ -27,7 +27,7 @@ def store(request, category_slug=None):
         # slug=category_slug    - е референция до папка category - models      (slug = models.SlugField(max_length=100, unique=True).Това ни доставя categories.
         categories = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(category=categories, is_available=True)
-        paginator = Paginator(products, 1)
+        paginator = Paginator(products, 2)
         page = request.GET.get('page')
         paged_products = paginator.get_page(page)
         product_count = products.count()
