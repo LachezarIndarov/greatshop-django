@@ -21,7 +21,7 @@ class CartItem(models.Model):
     quantity = models.IntegerField()
     is_active = models.BooleanField(default=True)
 
-    # Тази събира цялата сума за продукта и визуализира бройките за него
+    # Тази функция събира цялата сума за продукта и визуализира бройките за него
     def sub_total(self):
         return self.product.price * self.quantity
 

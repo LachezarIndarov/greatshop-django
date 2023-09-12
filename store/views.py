@@ -23,10 +23,12 @@ def store(request, category_slug=None):
         # http://127.0.0.1:8000/store/shirts/
         # http://127.0.0.1:8000/store/jeans/
         # http://127.0.0.1:8000/store/shoes/
-        #get_object_or_404(Category) - Bring categories is found, if don't found return 404 error
+        #get_object_or_404(Category) - Bring categories if is found, if don't found return 404 error
         # slug=category_slug    - е референция до папка category - models      (slug = models.SlugField(max_length=100, unique=True).Това ни доставя categories.
+        # Нареди всички продукти по категории да се показват чрез филтриране(shirts - всички видове ризи), (jeans - всички видове джинси),
         categories = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(category=categories, is_available=True)
+
         paginator = Paginator(products, 2)
         page = request.GET.get('page')
         paged_products = paginator.get_page(page)

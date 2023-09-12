@@ -9,15 +9,15 @@ from django.contrib.auth.decorators import login_required
 
 # _cart_id - private function
 def _cart_id(request):
-    cart = request.session.session_key
-
+    cart = request.session.session_key # We will take session id
+    # if don't have session at all, we will create
     if not cart:
         cart = request.session.create()
-    return cart
+    return cart # return the cart id
 
 def add_cart(request, product_id):
     current_user = request.user
-    product = Product.objects.get(id=product_id)
+    product = Product.objects.get(id=product_id) # get the product
     product_variation = []
     # we check  - if the user is authenticated
     if current_user.is_authenticated:

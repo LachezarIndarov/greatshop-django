@@ -8,6 +8,7 @@ class ProductGalleryInline(admin.TabularInline):
     model = ProductGallery
     extra = 1
 
+# prepopulated_fields - Автоматично добавяне на slug  в Django administration след като си попълнил Product name
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('product_name', 'price', 'stock', 'category', 'modified_date', 'is_available')
     prepopulated_fields = {'slug': ('product_name',)}

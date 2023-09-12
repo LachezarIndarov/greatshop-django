@@ -3,7 +3,7 @@ from store.models import Product, ReviewRating
 
 
 def home(request):
-    # All products
+    # products - Проверява всички продукти, който са налични или ги има в наличност
     products = Product.objects.all().filter(is_available = True).order_by('-created_date')
 
     # Get the reviews

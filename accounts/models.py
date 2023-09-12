@@ -3,9 +3,9 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 # Create your models here.
 
-
+# Това е акаунт модел за superuser
 class MyAccountManager(BaseUserManager):
-    # Създаване на потребител
+    # Създаване на потребител (user)
     def create_user(self, first_name, last_name, username, email, password=None):
         if not email:
             raise ValueError('User must have an email address')
@@ -68,6 +68,7 @@ class Account(AbstractBaseUser):
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
 
+    # return account object insite template this shoot return email address
     def __str__(self):
         return self.email
 
